@@ -1,2 +1,2 @@
-# basic_quantum_algorithms
+# Basic Quantum Algorithms
 Basic quantum algorithms implementation.
