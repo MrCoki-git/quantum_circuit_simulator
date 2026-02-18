@@ -1,14 +1,18 @@
 import numpy as np
 from src.qubit import Qubit
-from src.gates import H, Rx, Rz
-from src.bloch import plot_bloch
+from src.gates import H, Rx, Ry, Rz
+from src.bloch import plot_bloch_trajectory
 
-q = Qubit([1,0])   # state : |0>
-plot_bloch(q.state)  # point at North Pole of Bloch Sphere
+q = Qubit([1,0])
+states = [q.state.copy()]
 
 q.apply_gate(H)
-plot_bloch(q.state)  # point on the equatorial plane X-Y -> pole correspondant à |+>
+states.append(q.state.copy())
 
 q.apply_gate(Rx(np.pi/2))
-plot_bloch(q.state)  # rotation around X
+states.append(q.state.copy())
 
+q.apply_gate(Rz(np.pi/2))
+states.append(q.state.copy())
+
+plot_bloch_trajectory(states)

@@ -62,4 +62,8 @@ class Qubit:
             self.state = np.array([0,1], dtype=complex)
 
         return result
+    
+    def human_readable_state(self) :
+        res = str(self.state[0]) + "|0> + " + str(self.state[1]) + "|1>"
+        return res
 
